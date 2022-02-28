@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class creature : MonoBehaviour
 {
+    int a;
     public float Vitesse = 100.0f;
     // Start is called before the first frame update
     void Start()
