@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class crea : MonoBehaviour
+public class creature : MonoBehaviour
 {
     public float Vitesse = 100.0f;
     // Start is called before the first frame update
