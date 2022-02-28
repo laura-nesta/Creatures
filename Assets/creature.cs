@@ -9,6 +9,8 @@ public class crea : MonoBehaviour
     void Start()
     {
         gameObject.GetComponent<Renderer>().material.color = Color.red;
+
+        
     }
 
     // Update is called once per frame
