@@ -15,6 +15,8 @@ public class AileGauche : MonoBehaviour
     {
         if(Input.GetKey("space")){
             transform.Rotate(2,0,0);
+            //transform.Rotate(-2,0,0);
+
         }
     }
 }
