@@ -5,9 +5,12 @@ using UnityEngine;
 public class creature : MonoBehaviour
 {
     public float Vitesse = 100.0f;
+    public float Vitesse_Vol = 70.0f;
+    Animation animations;
     // Start is called before the first frame update
     void Start()
     {
+        animations= gameObject.GetComponent<Animation>();
         gameObject.GetComponent<Renderer>().material.color = Color.red;
     }
 
@@ -35,7 +38,7 @@ public class creature : MonoBehaviour
         }*/
         if (Input.GetKey("space"))
         {
-            transform.Translate(0,1f,0);
+            transform.Translate(Vector3.up*Time.deltaTime*Vitesse_Vol);
         }
         //appeusenteure (deso je sais pas l'ecrire x) )
        // transform.Translate(0,-0.1f,0);

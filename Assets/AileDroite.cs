@@ -5,6 +5,7 @@ using UnityEngine;
 public class AileDroite : MonoBehaviour
 {
     public float Vitesse = 100.0f;
+    public float degreesPersecond=50.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,16 +15,8 @@ public class AileDroite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("space"))
-        {
-            if(gameObject.transform.position(40,0,0))
-            {
-                transform.Rotate(-2,0,0);
-            }
-            else if(gameObject.transform.position(-40,0,0))
-            {
-                transform.Rotate(2,0,0);
-            }
-        }
+        /*if(Input.GetKey("space"))
+        {*/
+                transform.Rotate(degreesPersecond*Time.deltaTime,0,0);
     }
 }
