@@ -17,7 +17,8 @@ public class AileDroite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(valRotaion == 46 || valRotaion == -46)
+        if((valRotaion >= 46 && rotationScale > 0) || 
+         (valRotaion <= -46 && rotationScale < 0))
                 rotationScale = -rotationScale;
         //batement aile
         if(Input.GetKey("space")){

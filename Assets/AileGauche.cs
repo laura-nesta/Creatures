@@ -17,7 +17,8 @@ public class AileGauche : MonoBehaviour
     void Update()
     {
         //battement aile 
-        if(valRotaion == 46 || valRotaion == -46)
+        if((valRotaion >= 46 && rotationScale > 0) || 
+         (valRotaion <= -46 && rotationScale < 0))
                 rotationScale = -rotationScale;
         if(Input.GetKey("space")){
             transform.Rotate(rotationScale,0,0);
