@@ -11,19 +11,19 @@ public class AileDroite : MonoBehaviour
         gameObject.GetComponent<Renderer>().material.color = Color.yellow;
     }
 
-    int rotationScale = 2;
+    int rotationScale = 1;
      int valRotaion = 0;
     // Update is called once per frame
     void Update()
     {
+        //batement aile
         if(Input.GetKey("space")){
             if(valRotaion == 46 || 
                 valRotaion == -46)
                 rotationScale = -rotationScale;
             transform.Rotate(-rotationScale,0,0);
+            //transform.Translate(0,0.50f,0);
             valRotaion += rotationScale;
-            //transform.Rotate(rotationScale,0,0);
-            //print(transform.localRotation.x);
         }
     }
 } 

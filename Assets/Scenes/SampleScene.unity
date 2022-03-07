@@ -218,8 +218,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &621449178
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Vitesse: 100
->>>>>>> Stashed changes
 --- !u!1 &636909221
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,8 +726,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 29.12, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1385497556
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +740,7 @@ GameObject:
   - component: {fileID: 1385497558}
   - component: {fileID: 1385497561}
   m_Layer: 0
-  m_Name: aile gauche
+  m_Name: aile_gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -922,7 +917,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 20.687, y: -93.533, z: 1.669}
->>>>>>> Stashed changes
 --- !u!1 &1948259756
 GameObject:
   m_ObjectHideFlags: 0

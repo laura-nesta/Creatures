@@ -15,6 +15,7 @@ public class creature : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Input.GetKey(KeyCode.UpArrow)){
             transform.Translate(Vector3.forward*Time.deltaTime*Vitesse);
         }
@@ -27,13 +28,14 @@ public class creature : MonoBehaviour
         if(Input.GetKey(KeyCode.RightArrow)){
             transform.Translate(Vector3.right*Time.deltaTime*Vitesse);
         }
+        */
         /*
         if(Input.GetKeyDown(KeyCode.Space)){
             transform.Translate(Vector3.left*Time.deltaTime*Vitesse);
         }*/
         if (Input.GetKey("space"))
         {
-            transform.Translate(0,0.50f,0);
+                //transform.Translate(0,0.50f,0);
         }
         //appeusenteure (deso je sais pas l'ecrire x) )
        // transform.Translate(0,-0.1f,0);
