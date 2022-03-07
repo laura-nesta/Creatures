@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class creature : MonoBehaviour
 {
-    public float Vitesse = 100.0f;
+    public float Vitesse_Marche = 100.0f;
+    public float Acceleration = 5.0f;
     public float Vitesse_Vol = 70.0f;
-    Animation animations;
+    //Animation animations;
     // Start is called before the first frame update
     void Start()
     {
-        animations= gameObject.GetComponent<Animation>();
+        //animations= gameObject.GetComponent<Animation>();
         gameObject.GetComponent<Renderer>().material.color = Color.red;
     }
 
@@ -18,19 +19,19 @@ public class creature : MonoBehaviour
     void Update()
     {
         if(Input.GetKey(KeyCode.UpArrow)){
-            transform.Translate(Vector3.forward*Time.deltaTime*Vitesse);
+            transform.Translate(Vector3.forward*Time.deltaTime*Vitesse_Marche);
         }
 
         if(Input.GetKey(KeyCode.DownArrow)){
-            transform.Translate(Vector3.back*Time.deltaTime*Vitesse);
+            transform.Translate(Vector3.back*Time.deltaTime*Vitesse_Marche);
         }
 
         if(Input.GetKey(KeyCode.LeftArrow)){
-            transform.Translate(Vector3.left*Time.deltaTime*Vitesse);
+            transform.Translate(Vector3.left*Time.deltaTime*Vitesse_Marche);
         }
 
         if(Input.GetKey(KeyCode.RightArrow)){
-            transform.Translate(Vector3.right*Time.deltaTime*Vitesse);
+            transform.Translate(Vector3.right*Time.deltaTime*Vitesse_Marche);
         }
         /*
         if(Input.GetKeyDown(KeyCode.Space)){
