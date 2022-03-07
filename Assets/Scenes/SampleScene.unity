@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc75d7a44dfb19f449b1ba2527db4965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maCreature: {fileID: 636909221}
   Vitesse: 100
 --- !u!1 &636909221
 GameObject:

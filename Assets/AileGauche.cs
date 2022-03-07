@@ -33,6 +33,8 @@ public class AileGauche : MonoBehaviour
             valRotaion += rotationScale;
             if(rotationScale > 0){
                  maCreature.transform.Translate(0,0,-0.25f);
+                 maCreature.transform.Translate(0,0.25f,0);
+                 maCreature.transform.Rotate(-0.1f,0,0);
             }
         }
     

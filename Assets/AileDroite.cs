@@ -12,7 +12,7 @@ public class AileDroite : MonoBehaviour
         gameObject.GetComponent<Renderer>().material.color = Color.yellow;
     }
 
-    int rotationScale = 1;
+    int rotationScale = -1;
      int valRotaion = 0;
     // Update is called once per frame
     void Update()
@@ -22,7 +22,7 @@ public class AileDroite : MonoBehaviour
                 rotationScale = -rotationScale;
         //batement aile
         if(Input.GetKey("space")){
-            transform.Rotate(-rotationScale,0,0);
+            transform.Rotate(rotationScale,0,0);
             valRotaion += rotationScale;
             if(rotationScale < 0){
                maCreature.transform.Translate(0,0.50f,0); 
@@ -32,8 +32,10 @@ public class AileDroite : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftArrow)){
             transform.Rotate(rotationScale,0,0);
             valRotaion += rotationScale;
-            if(rotationScale > 0){
-                 maCreature.transform.Translate(0,0,0.25f);
+            if(rotationScale < 0){
+                maCreature.transform.Translate(0,0,0.25f);
+                maCreature.transform.Translate(0,0.25f,0);
+                maCreature.transform.Rotate(0.1f,0,0);
             }
         }
     }
