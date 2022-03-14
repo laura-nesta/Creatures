@@ -20,8 +20,8 @@ public class Generation : MonoBehaviour
         GameObject queue = GameObject.Find("queue");
         for(int i = 0 ; i < nb_creatures; i++){
             GameObject go = Instantiate(selector, new Vector3((float)283.5, (float)255.7, (float)i*50-200), Quaternion.identity) as GameObject;
-            GameObject queue1 = GameObject[0].Find("queue");
-            queue1.transform.localScale = Vector3.one;
+            //GameObject queue1 = GameObject[0].Find("queue");
+            //queue1.transform.localScale = Vector3.one;
             go.transform.localScale = new Vector3(-10,10,10);
             //maCreature[i].transform.localScale += new Vector3(10,10,10);
             //go.Find("creature/corps").transform.localScale = new Vector3(i,1,1);
