@@ -33,7 +33,7 @@ public class queue : MonoBehaviour
             if(rotationScale > 0){
                  maCreature.transform.Translate(0,0,0.25f);
                  maCreature.transform.Translate(-0.5f,0,0);
-                 maCreature.transform.Rotate(0,0,-0.1f);
+                 maCreature.transform.Rotate(0,0,-0.01f);
             }
         }
     }

@@ -10,6 +10,10 @@ public class creature : MonoBehaviour
     void Start()
     {
         gameObject.GetComponent<Renderer>().material.color = Color.red;
+        GameObject.Find("creature/corps").transform.localScale = new Vector3(2,1,1);
+        GameObject.Find("creature/aile_droite").transform.localScale = new Vector3(1,0.2f,2);
+        GameObject.Find("creature/aile_gauche").transform.localScale = new Vector3(1,0.2f,2.5f);
+        GameObject.Find("creature/tete").transform.Translate(0.5f,0,0);
     }
 
     // Update is called once per frame
