@@ -4,53 +4,49 @@ using UnityEngine;
 
 public class Aile : MonoBehaviour
 {
+    public const float RHO_AIR = 1.20;
     public int rotationScale;
     public int valRotation;
-
-    public float Vitesse; //rapide, lent
-    public int poids;
-    public int taille; 
-    public int largeur; // large, étroite 
-    public int envergure;
+    public float vitesse;
 
     public int amplitude;
     public int frequence;
 
-    public int turbulence;
-    /*
-    La turbulence désigne l'état de l'écoulement d'un fluide, liquide ou gaz, dans lequel la vitesse présente en tout point un caractère tourbillonnaire 
-    [formule à ajouter]
-    */
-    public int portance; 
+    public float longueur; 
+    public float largeur;
+    public float epaisseur;
+    public int poids;
+    public float surface;
+
+    public float allongement;
+    //L'allongement d'une aile est égal au quotient de l'envergure par la corde moyenne. 
+    //Pour une aile de forme quelconque, l'allongement est égal au carré de l'envergure divisé par la surface portante :
+    //FORMULE = λ = b²/S
+
+    public float Cz; // Coeficient de portance. Pour vol de croisiere: 0.3 < Cz < 0.7
+    public float portance;
     // composante de la force subie par un corps en mvt dans un fluide qui s'exerce perpendiculairement à la direction du mvt 
-    // [chercher formule]
-    public int allongement; //élevé ou pas
-    /*
-    L'allongement d'une aile (noté λ {\displaystyle \lambda } \lambda (lambda), est égal au quotient de l'envergure par la corde moyenne. 
-    Pour une aile rectangulaire sans flèche, il est donc égal au quotient de l'envergure par la corde.
-    Pour une aile de forme quelconque, l'allongement est égal au carré de l'envergure divisé par la surface portante :
-    FORMULE = λ = b²/S
-    */
+    
+    public Vector3 extremite;
 
-    public int manoeuvrabilite; //plus ou moin forte
-    public int habilete; // adresse 
-    public int cambrure;
-
-    public bool échancrure;
-    public bool interstices;
-    
-    
-    public int battements; //continu ou non
-    public int emargination; //pour la pression de l'air
-    public int typeVol; //plané, lent... => enum?
-    
-    
 
     // Start is called before the first frame update
-    void Start()
+    async void Start()
     {
         valRotation = 0;
-        Vitesse = 100.0f;
+        vitesse = 100.0f;
+
+        longueur = gameObject.transform.localScale.x;
+        largeur = gameObject.transform.localScale.z;
+        epaisseur = gameObject.transform.localScale.y;
+
+        extremite = new Vector3(gameObject.transform.position.x - longueur / 2, 0, gameObject.transform.position.z);
+
+        surface = Surface(gameObject.transform.localScale.x, gameObject.transform.localScale.z);
+
+        allongement = longueur * longueur / surface;
+
+        portance = 0.5 * RHO_AIR * vitesse*vitesse * surface * Cz;
     }
 
     // Update is called once per frame
@@ -66,4 +62,10 @@ public class Aile : MonoBehaviour
             valRotation += rotationScale;
         }
     }
+
+    
+    public float Surface(float x, float y) {
+        return x*y;
+    }
+
 } 
