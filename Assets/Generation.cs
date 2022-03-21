@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Generation : MonoBehaviour
 {
+    private int nb_crea = 10;
+    public float[nb_crea] rate = {10f};
+    public GameObject[] maCreature;
+
+
     private int nb_creatures = 10;
     public GameObject[] maCreature;
     public GameObject selector;
