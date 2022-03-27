@@ -9,7 +9,7 @@ public class AileDroite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+       // gameObject.GetComponent<Renderer>().material.color = Color.yellow;
     }
 
     // Update is called once per frame
