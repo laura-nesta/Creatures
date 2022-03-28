@@ -15,8 +15,6 @@ public class AileDroite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(Input.GetKey("space"))
-        {*/
-                transform.Rotate(degreesPersecond*Time.deltaTime,0,0);
+        
     }
 }
