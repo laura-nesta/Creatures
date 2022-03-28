@@ -21,10 +21,32 @@ public class Creature : MonoBehaviour
   public GameObject queue /*= creature.transform.Find("Queue").gameObject*/;
 
 
-  // Start is called before the first frame update
+  public void setGene(ADN g){
+    genes = g;
+  }
+
+  public ADN getGene(){
+    return genes;
+  }
+
+  public void genereADN(){
+      genes.SetAileD(rand.NextDouble() * 2);
+    }
+
+
+  /*geneRand.SetAileD(rand.NextDouble() * 2);
+        geneRand.SetAileG(rand.NextDouble() * 2);
+        geneRand.SetQueue(rand.NextDouble() * 2);
+        geneRand.SetPoids(rand.NextDouble() * 2);
+        if(rand.Next(2) == 0){
+            geneRand.SetSync(false);
+        }
+        else geneRand.SetSync(true);
+  */    
+    // Start is called before the first frame update
   async void Start()
   {   
-     ailed.transform.localScale = new Vector3(ailed.transform.localScale.x*1, ailed.transform.localScale.y*1,ailed.transform.localScale.z*genes.tailleAileD);
+     ailed.transform.localScale = new Vector3(ailed.transform.localScale.x*1, ailed.transform.localScale.y*1,ailed.transform.localScale.z*genes.getAileD());
   }
 
   // Update is called once per frame

@@ -12,7 +12,10 @@ public class Generation : MonoBehaviour
     public GameObject[] maCreature;
     public GameObject selector;
     //int[] array1 = new int[5];
+    Creature crea;
+    private ADN geneRand;
 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class Generation : MonoBehaviour
         //maCreature[0].GetComponent<Renderer>().material.color = Color.blue;
         maCreature = new GameObject[nb_creatures];
         for(int i = 0 ; i < nb_creatures; i++){
+            //crea.setGene(genereADN());
             GameObject go = Instantiate(selector, new Vector3((float)-10, (float)25, (float)i*5-20), Quaternion.identity) as GameObject;
 
             //GameObject queue1 = GameObject[0].Find("queue");

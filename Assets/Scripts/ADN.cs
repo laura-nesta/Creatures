@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ADN : MonoBehaviour
 {
-    public float tailleAileG;
-    public float tailleAileD;
+    private float tailleAileG;
+    private float tailleAileD;
     private float tailleQueue;
     private float poids;
     private bool synchro; //ou int 0;1
 
     //on travaille avec des ratios par rapport à notre créature de base
     //le constructeur par défaut à des genes qui ne modifie pas notre ccreature
-    ADN(){
+    public ADN(){
         tailleAileD = 1;
         tailleAileG = 1;
         tailleQueue = 1;
@@ -21,7 +21,7 @@ public class ADN : MonoBehaviour
     }
 
     //constructeurs avec pramètres pour modifier nos créatures
-    ADN(float tAg, float tAd, float tQ, float p, bool s){
+    public ADN(float tAg, float tAd, float tQ, float p, bool s){
         tailleAileD = tAd;
         tailleAileG = tAg;
         tailleQueue = tQ;
@@ -29,7 +29,7 @@ public class ADN : MonoBehaviour
         synchro = s;
     }
 
-    void setGenes(float tAg, float tAd, float tQ, float p, bool s){
+    public void setGenes(float tAg, float tAd, float tQ, float p, bool s){
         tailleAileD = tAd;
         tailleAileG = tAg;
         tailleQueue = tQ;
@@ -37,14 +37,39 @@ public class ADN : MonoBehaviour
         synchro = s;
     }
 
-    float getAileD(){
+    public float getAileD(){
         return tailleAileD;
     }
-    float getAileG(){
+    public float getAileG(){
         return tailleAileD;
     }
-    float getQueue(){
+    public float getQueue(){
         return tailleQueue;
+    }
+
+    public float getpoids(){
+        return poids;
+    }
+
+    public bool getSync(){
+        return synchro;
+    }
+
+    public void SetAileD(float t){
+        tailleAileD = t;
+    }
+
+    public void SetAileG(float t){
+        tailleAileG = t;
+    }
+    public void SetQueue(float t){
+        tailleQueue = t;
+    }
+    public void SetPoids(float t){
+        poids = t;
+    }
+    public void SetSync(bool t){
+        synchro = t;
     }
 
     // Start is called before the first frame update
