@@ -81,15 +81,13 @@ public class Ailes : MonoBehaviour
         transform.Rotate(-Mathf.Sin(angle) * amplitude, 0, 0);
         angle +=0.1f;
 
-        //aile.AddForce(transform.up * portance);
-        //aile.AddForce(transform.right * portance);
+        aile.AddForce(transform.up * portance);
     }
 
     public void BattementAileDroite() {
         transform.Rotate(Mathf.Sin(angle) * amplitude, 0, 0);
 		angle +=0.1f;
-        //aile.AddForce(transform.up * portance);
-        //aile.AddForce(transform.right * portance);
+        aile.AddForce(transform.up * portance);
     }
 	    
     public void RotationAileInter() {
