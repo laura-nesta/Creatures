@@ -1310,7 +1310,7 @@ GameObject:
   - component: {fileID: 1385497558}
   - component: {fileID: 1385497561}
   m_Layer: 0
-  m_Name: aile gauche
+  m_Name: aile_gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
