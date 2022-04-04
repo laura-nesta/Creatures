@@ -404,8 +404,8 @@ GameObject:
   - component: {fileID: 636909225}
   - component: {fileID: 636909224}
   - component: {fileID: 636909223}
-  - component: {fileID: 636909222}
   - component: {fileID: 636909227}
+  - component: {fileID: 636909222}
   m_Layer: 0
   m_Name: creature
   m_TagString: Untagged
@@ -425,6 +425,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839ccfb2c707e0249acd0a1ed181c5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  note: 0
+  aile: {fileID: 1075504931}
+  ailed: {fileID: 621449178}
+  aileg: {fileID: 1385497556}
+  corps: {fileID: 2031155834}
+  queue: {fileID: 829201005}
 --- !u!65 &636909223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1507,14 +1513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea3f07e84e4806419f4bbe6355c1ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nb_obstacles: 5
-  obstacle:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  selector: {fileID: 0}
 --- !u!1 &2031155834
 GameObject:
   m_ObjectHideFlags: 0

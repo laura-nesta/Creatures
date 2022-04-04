@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ADN : MonoBehaviour
 {
-    private float tailleAileG;
-    private float tailleAileD;
-    private float tailleQueue;
-    private float poids;
-    private bool synchro; //ou int 0;1
+    private float tailleAileG; //0
+    private float tailleAileD; //1
+    private float tailleQueue; //2
+    private float poids;       //3
+    private bool synchro;      //4   //ou int 0;1
+    private int nb_gene = 5;
 
     //on travaille avec des ratios par rapport à notre créature de base
     //le constructeur par défaut à des genes qui ne modifie pas notre ccreature
@@ -70,6 +71,10 @@ public class ADN : MonoBehaviour
     }
     public void SetSync(bool t){
         synchro = t;
+    }
+
+    public int getNbGene(){
+        return nb_gene;
     }
 
     // Start is called before the first frame update

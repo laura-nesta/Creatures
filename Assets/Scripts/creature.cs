@@ -11,6 +11,10 @@ public class Creature : MonoBehaviour
   public int note = 20;
 
   private ADN genes;
+  private int nb_genes;
+  nb_genes =  genes.getNbGene;
+
+
 
   public GameObject aile /*= creature.transform.Find("Ailes").gameObject*/;
     public GameObject ailed /*= creature.transform.Find("Ailes/aile_droite").gameObject*/;
@@ -29,9 +33,35 @@ public class Creature : MonoBehaviour
     return genes;
   }
 
+  /*
   public void genereADN(){
       genes.SetAileD(rand.NextDouble() * 2);
     }
+    */
+
+  public void tabToGene(int tab[nb_genes]){
+      genes.SetAileG(tab[0]);
+      genes.SetAileD(tab[1]);
+      genes.SetQueue(tab[2]);
+      genes.SetPoids(tab[3]);
+      if(tab[4] == 0)
+        genes.SetSync(false);
+      else
+        genes.SetSync(true);
+  }
+
+  public int[] geneToTab(){
+    int tab[nb_genes];
+    tab[0] = getAileG();
+    tab[1] = getAileD();
+    tab[2] = getQueue();
+    tab[3] = getpoids();
+    if(SetSync)
+      tab[4] = 1;
+    else
+      tab[4] = 0;
+    return tab;
+  }
 
 
   /*geneRand.SetAileD(rand.NextDouble() * 2);
