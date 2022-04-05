@@ -12,7 +12,7 @@ public class Creature : MonoBehaviour
 
   private ADN genes;
   private int nb_genes;
-  nb_genes =  genes.getNbGene;
+  nb_genes =  genes.getNbGene();
 
 
 
@@ -63,6 +63,9 @@ public class Creature : MonoBehaviour
     return tab;
   }
 
+  public void modifCrea(){
+    ailed.transform.localScale = new Vector3(ailed.transform.localScale.x*1, ailed.transform.localScale.y*1,ailed.transform.localScale.z*genes.getAileD());    
+  }
 
   /*geneRand.SetAileD(rand.NextDouble() * 2);
         geneRand.SetAileG(rand.NextDouble() * 2);

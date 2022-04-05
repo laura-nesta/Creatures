@@ -10,10 +10,16 @@ public class Generation : MonoBehaviour
 
     private int nb_creatures = 10;
     public GameObject[] maCreature;
-    public GameObject selector;
+    //public GameObject selector;
     //int[] array1 = new int[5];
     Creature crea;
     private ADN geneRand;
+
+    public GameObject selector = transform.Find("Creature").gameObject;
+
+    public void modifCrea(int tab[nb_crea]){
+        selector.modifCrea();
+    }
 
     
 
@@ -26,6 +32,7 @@ public class Generation : MonoBehaviour
         maCreature[1].transform.Translate(-2,0,0);*/
         //maCreature[0].GetComponent<Renderer>().material.color = Color.blue;
         maCreature = new GameObject[nb_creatures];
+        int tab[5] = maCreature[0].geneToTab();
         for(int i = 0 ; i < nb_creatures; i++){
             //crea.setGene(genereADN());
             GameObject go = Instantiate(selector, new Vector3((float)-10, (float)25, (float)i*5-20), Quaternion.identity) as GameObject;
