@@ -2,44 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* 
-A FAIRE:
-    - faire les getteurs et les setteurs ? 
-    - coder les fonctions vides
-    - réfléchir aux autres fonctionnalités possibles
-
-*/
-
 public class Queue : MonoBehaviour
 {
-    //public GameObject maCreature;
-    int rotationScale;
-    int valRotation;
-    
-    // Start is called before the first frame update
-    void Awake()
-    {
-        rotationScale = 1;
-        valRotation = 0;
-    }
 
-    void Start() {
-        gameObject.GetComponent<Renderer>().material.color = Color.yellow;
-    }
-    
-    // Update is called once per frame
-    void Update()
+    Rigidbody r_Queue;
+    float angle = 0.0f;
+    Vector3 v;
+
+    Vector3 m_StartPos, m_StartForce;
+
+    float coefPortance = 0.5f;
+    Vector3 portance, trainee, traction;
+
+    // Start is called before the first frame update
+    void Start()
     {
+        r_Queue = GetComponent<Rigidbody>();
+            r_Queue.drag = 1.2f;
+        
+        portance = new Vector3(0.0f, 0.1f, 0.0f);
+        trainee  = new Vector3(-0.1f,0.0f, 0.0f);
+        traction = new Vector3(0.2f,0.0f, 0.0f);
         
     }
 
-    void Bouger() {
-        if((valRotation >= 35 && rotationScale > 0) || 
-         (valRotation <= -35 && rotationScale < 0))
-                rotationScale = -rotationScale;
+    void FixedUpdate()
+    {
+            v = new Vector3( Mathf.Sin(angle),0, 0);
+            angle += 0.1f;
+            r_Queue.AddTorque(v, ForceMode.VelocityChange);
+            r_Queue.AddForce(portance, ForceMode.Impulse);
 
-        transform.Rotate(0,0,rotationScale);
-        valRotation += rotationScale;
+            r_Queue.AddForce(trainee, ForceMode.Impulse);
+            r_Queue.AddForce(traction, ForceMode.Acceleration);
     }
-
 }
