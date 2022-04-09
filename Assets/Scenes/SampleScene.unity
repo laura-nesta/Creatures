@@ -890,7 +890,7 @@ GameObject:
   - component: {fileID: 628860318}
   - component: {fileID: 628860317}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: w2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1252,7 +1252,7 @@ GameObject:
   - component: {fileID: 989389320}
   - component: {fileID: 989389321}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1549,10 +1549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06dc43453cb856c69f5c5a90de977be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Aile: {fileID: 1058993868}
-  angle: 0
-  angleMax: 1.5
-  bat: 0
 --- !u!1 &1146002131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,7 +1565,7 @@ GameObject:
   - component: {fileID: 1146002137}
   - component: {fileID: 1146002138}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: w1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2332,10 +2328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d06dc43453cb856c69f5c5a90de977be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Aile: {fileID: 1437293123}
-  angle: 0
-  angleMax: 1.5
-  bat: 0
 --- !u!1 &1488403377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,6 +2462,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1713989215}
+  - component: {fileID: 1713989217}
+  - component: {fileID: 1713989216}
   m_Layer: 0
   m_Name: test
   m_TagString: Untagged
@@ -2495,6 +2489,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1713989216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713989214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f783636f09b2165b39468ee2dcf2c461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ailes:
+  - {fileID: 1146002137}
+  - {fileID: 628860318}
+  queues:
+  - {fileID: 989389321}
+  corps: {fileID: 1488403383}
+  genes: {fileID: 0}
+  timer: 0
+  waitTime: 5
+--- !u!54 &1713989217
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713989214}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2053912302
 GameObject:
   m_ObjectHideFlags: 0
@@ -2620,9 +2651,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf944cd3f71e1578b484ae183da628a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbAiles: 2
-  a:
-  - {fileID: 1058993874}
-  - {fileID: 1437293128}
-  timer: 0
-  waitTime: 10

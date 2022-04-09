@@ -8,15 +8,17 @@ public class Oiseau : MonoBehaviour
     Rigidbody r_Body;
 
 
-    Vector3 m_StartPos, m_StartForce;
+    Vector3 m_StartPos;
 
-    float coefPortance = 0.5f;
+    //float coefPortance = 0.5f;
     float vitesse = 20.0f;
     Vector3 portance, trainee, traction;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_StartPos = transform.position;
+
         r_Body = GetComponent<Rigidbody>();
             r_Body.drag = 1.2f;
         
@@ -33,5 +35,9 @@ public class Oiseau : MonoBehaviour
 
         r_Body.AddForce(trainee, ForceMode.Impulse);
         r_Body.AddForce(traction, ForceMode.Acceleration);
+    }
+
+    public Rigidbody getCorps() {
+        return r_Body;
     }
 }

@@ -10,7 +10,7 @@ public class AileDeFou : MonoBehaviour
     float angle = 0.0f;
     Vector3 v;
 
-    Vector3 m_StartPos, m_StartForce;
+    Vector3 m_StartPos;
 
     float coefPortance = 1.0f;
     Vector3 portance, trainee, traction;
@@ -18,6 +18,8 @@ public class AileDeFou : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_StartPos = transform.position;
+
         r_Aile = GetComponent<Rigidbody>();
             r_Aile.drag = 1.2f;
         
@@ -44,5 +46,9 @@ public class AileDeFou : MonoBehaviour
 
             r_Aile.AddForce(trainee, ForceMode.Impulse);
             r_Aile.AddForce(traction, ForceMode.Acceleration);
+    }
+
+    public Rigidbody getAile() {
+        return r_Aile;
     }
 }

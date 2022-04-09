@@ -9,14 +9,16 @@ public class Queue : MonoBehaviour
     float angle = 0.0f;
     Vector3 v;
 
-    Vector3 m_StartPos, m_StartForce;
+    Vector3 m_StartPos;
 
-    float coefPortance = 0.5f;
+    //float coefPortance = 0.5f;
     Vector3 portance, trainee, traction;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_StartPos = transform.position;
+        
         r_Queue = GetComponent<Rigidbody>();
             r_Queue.drag = 1.2f;
         
@@ -35,5 +37,9 @@ public class Queue : MonoBehaviour
 
             r_Queue.AddForce(trainee, ForceMode.Impulse);
             r_Queue.AddForce(traction, ForceMode.Acceleration);
+    }
+
+    public Rigidbody getQueue() {
+        return r_Queue;
     }
 }

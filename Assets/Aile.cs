@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Aile : MonoBehaviour
 {
-
+/*
     
     Vector3 m_StartPos, m_StartForce;
     Vector3 m_NewForce;
@@ -56,5 +56,6 @@ public class Aile : MonoBehaviour
         angle = 0;
         
     }
+    */
 
 }
