@@ -23,7 +23,6 @@ public class Creature : MonoBehaviour
     float aileg, ailed, queue, poids;
 
     Vector3 [] v_aile;
-    Vector3 tmp_aile;
 
     public float timer = 0f;
     public float waitTime = 5f;
@@ -32,13 +31,8 @@ public class Creature : MonoBehaviour
         tabAiles = new AileDeFou[nbAiles];
         tabQueue = new Queue[nbQueues];
         v_aile = new Vector3[nbAiles];
-        tmp_aile = new Vector3();
-    
         
-        //m_tabAiles = new GameObject;
-        //m_tabQueues = new GameObject[nbQueues];
-        genes = new ADN(); 
-        
+        genes = gameObject.AddComponent<ADN>();
         r_Creature = GetComponent<Rigidbody>();
 
         for(int i=0; i<nbAiles; i++) {
@@ -66,7 +60,6 @@ public class Creature : MonoBehaviour
 
         for(int i=0; i<nbAiles; i++){
             v_aile[i] = tabAiles[i].getAile().transform.localScale;
-            tmp_aile = v_aile[i];
             
             if(tabAiles[i].isAile_G){
                 v_aile[i] *= aileg;
