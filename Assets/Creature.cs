@@ -13,7 +13,7 @@ public class Creature : MonoBehaviour
     Queue [] tabQueue;
     Oiseau corps;
 
-    public GameObject m_tabAiles;
+    public GameObject  m_tabAiles;
     public GameObject m_tabQueues;
     GameObject m_Corps;
     GameObject m_Creature;
@@ -69,7 +69,7 @@ public class Creature : MonoBehaviour
             tmp_aile = v_aile[i];
             
             if(tabAiles[i].isAile_G){
-                v_aile[i] = new Vector3(tmp_aile.x * aileg, tmp_aile.y * aileg, tmp_aile.z * aileg);
+                v_aile[i] *= aileg;
             }
             else{
                 v_aile[i] *= ailed;
@@ -82,7 +82,7 @@ public class Creature : MonoBehaviour
     }
 
     void Update() {
-        
+        Debug.Log("here we gooooo");
     }
 
 
