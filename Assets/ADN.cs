@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ADN : MonoBehaviour
+public class ADN
 {
     private float tailleAileG; //0
     private float tailleAileD; //1

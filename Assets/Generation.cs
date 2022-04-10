@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Generation : MonoBehaviour
 {
+    public int nbCreatures;
+    Creature [] tabCreature;
+    ADN [] tabAdn;
     //private int nb_crea = 10;
    // public float[nb_crea] note = {10f};
 /*
@@ -20,8 +23,7 @@ public class Generation : MonoBehaviour
     public void modifCrea(int tab[nb_crea]){
         selector.modifCrea();
     }
-
-    
+*/  
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +44,13 @@ public class Generation : MonoBehaviour
             //maCreature[i].transform.localScale += new Vector3(10,10,10);
             //go.Find("creature/corps").transform.localScale = new Vector3(i,1,1);
             maCreature[i] = go;
-        }
+        }*/
+
+        tabCreature = new Creature[nbCreatures];
+        tabAdn = new ADN[nbCreatures];
     }
 
-    // Update is called once per frame
+    /*
     void Update()
     {
         

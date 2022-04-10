@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
-    public const int nbAiles = 2;
-    public const int nbQueues = 1;
+    public int nbAiles = 2;
+    public int nbQueues = 1;
     Vector3 target;
 
 //////////////////  CREATURE  /////////////////////
@@ -16,7 +16,7 @@ public class Creature : MonoBehaviour
     Rigidbody r_Creature;
 
     public ADN genes;
-    float aileg, ailed, queue;
+    float aileg, ailed, queue, poids;
 
     public float timer = 0f;
     public float waitTime = 5f;
@@ -27,32 +27,36 @@ public class Creature : MonoBehaviour
     {
         tabAiles = new AileDeFou[nbAiles];
         tabQueue = new Queue[nbQueues];
-        genes = m_Creature.AddComponent<ADN>();
-        r_Creature = GetComponent<Rigidbody>();
-        //corps = new Oiseau();
-        //genes = new ADN();
+        //genes = m_Creature.AddComponent<ADN>();
+        genes = new ADN(); 
         
+        r_Creature = GetComponent<Rigidbody>();
+    
         // INITIALISATION DES COMPOSANTS DE LA CREATURE (avec les gènes)
        
-    }
-
-    void Update() {
-        //r_Creature.mass = genes.getPoids();
         aileg = genes.getAileG();
         ailed = genes.getAileD();
         queue = genes.getQueue();
+        poids = genes.getPoids();
+
+        r_Creature.mass = poids;
+/*
         for(int i=0; i<nbAiles; i++){
             if(tabAiles[i].isAile_G){
-                tabAiles[i].getAile().transform.localScale = new Vector3(aileg, aileg, aileg);
+                tabAiles[i].getAile().transform.localScale *= aileg;
             }
             else{
-                tabAiles[i].getAile().transform.localScale = new Vector3(ailed, ailed, ailed);
+                tabAiles[i].getAile().transform.localScale *= ailed;
             }
         }
 
         for(int i=0; i<nbQueues; i++){
-            tabQueue[i].transform.localScale = new Vector3(queue, queue, queue);
-        }
+            tabQueue[i].transform.localScale *= queue;
+        } */
+    }
+
+    void Update() {
+        Debug.Log(ailed);
     }
 
 

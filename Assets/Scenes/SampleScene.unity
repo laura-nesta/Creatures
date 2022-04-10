@@ -2501,10 +2501,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f783636f09b2165b39468ee2dcf2c461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ailes:
+  tabAiles:
   - {fileID: 1146002137}
   - {fileID: 628860318}
-  queues:
+  tabQueue:
   - {fileID: 989389321}
   corps: {fileID: 1488403383}
   genes: {fileID: 0}
