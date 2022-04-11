@@ -46,7 +46,7 @@ public class Generation : MonoBehaviour
         for (int i = 0; i < populationTaille; i++)
         {
             
-            Vector3 pos = new Vector2(Random.Range(-200, 0), 256, Random.Range(-400, 400));
+            Vector3 pos = new Vector3(Random.Range(-200, 0), 256, Random.Range(-400, 400));
  
             // Instantiate a new creature
             GameObject creature = Instantiate(Bird, pos, Quaternion.identity);
