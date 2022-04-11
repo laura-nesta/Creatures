@@ -7,6 +7,8 @@ public class Generation : MonoBehaviour
 {
     public int populationTaille = 10;
 
+    public ADN [] tabADN;
+
     public GameObject m_creature;
 
     public float populationEsperance=6.0f;
@@ -18,6 +20,11 @@ public class Generation : MonoBehaviour
     private int currentGeneration = 1;
 
     private float timeleft;
+
+    void Awake()
+    {
+        tabADN=new ADN[5];
+    }
  
     // Start is called before the first frame update
     void Start()
@@ -52,13 +59,14 @@ public class Generation : MonoBehaviour
             GameObject creature = Instantiate(Bird, pos, Quaternion.identity);
 
             float randtaille=Random.Range(1.0f,3.0f);
-            
-            ADN creatureDNA = creature.GetComponent<DNA>();
-            creatureDNA.tailleAileG=randtaille;
-            creatureDNA.tailleAileD=randtaille;
-            creatureDNA.tailleQueue=randtaille;
-            creatureDNA.poids=Random.Range(1.0f,4.0f);
-            creatureDNA.synchro=true;
+            float randpoids=Random.Range(1.0f,4.0f);
+
+            ADN creatureDNA = creature.GetComponent<ADN>();
+            creatureDNA.SetAileG(randtaille);
+            creatureDNA.SetAileD(randtaille);
+            creatureDNA.SetQueue(randtaille);
+            creatureDNA.SetPoids(randpoids);
+            creatureDNA.SetSync(true);
 
 
             population.Add(m_creature);
