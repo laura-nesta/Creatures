@@ -48,7 +48,7 @@ public class ADN : MonoBehaviour
         return tailleQueue;
     }
 
-    public float getpoids(){
+    public float getPoids(){
         return poids;
     }
 
