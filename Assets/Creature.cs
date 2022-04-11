@@ -32,7 +32,6 @@ public class Creature : MonoBehaviour
 
         tabAiles = GetComponentsInChildren<AileDeFou>();
         tabQueue = GetComponentsInChildren<Queue>();
-        
     }
 
 
