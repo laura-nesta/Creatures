@@ -56,16 +56,16 @@ public class Generation : MonoBehaviour
             Vector3 pos = new Vector3(Random.Range(-200, 0), 256, Random.Range(-400, 400));
  
             // Instantiate a new creature
-            GameObject creature = Instantiate(Bird, pos, Quaternion.identity);
+            GameObject creature = Instantiate(m_creature, pos, Quaternion.identity);
 
-            float randtaille=Random.Range(1.0f,3.0f);
-            float randpoids=Random.Range(1.0f,4.0f);
+            /*float randtaille=Random.Range(1.0f,3.0f);
+            float randpoids=Random.Range(1.0f,4.0f);*/
 
             ADN creatureDNA = creature.GetComponent<ADN>();
-            creatureDNA.SetAileG(randtaille);
-            creatureDNA.SetAileD(randtaille);
-            creatureDNA.SetQueue(randtaille);
-            creatureDNA.SetPoids(randpoids);
+            creatureDNA.SetAileG(Random.Range(1.0f,3.0f));
+            creatureDNA.SetAileD(Random.Range(1.0f,3.0f));
+            creatureDNA.SetQueue(Random.Range(1.0f,3.0f));
+            creatureDNA.SetPoids(Random.Range(1.0f,4.0f));
             creatureDNA.SetSync(true);
 
 
