@@ -58,9 +58,7 @@ public class Creature : MonoBehaviour
         }
         
         foreach(Queue q in tabQueue){            
-          
             q.transform.localScale *= queue;
-            
         }
        
     }

@@ -16,7 +16,7 @@ public class ADN : MonoBehaviour
     public ADN(){
         tailleAileD = 1;
         tailleAileG = 1;
-        tailleQueue = 1;
+        tailleQueue = 1; 
         poids = 1;
         synchro = false;
     }
