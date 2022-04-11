@@ -7,7 +7,7 @@ public class Generation : MonoBehaviour
 {
     public int populationTaille = 10;
 
-    public ADN [] tabADN;
+    //public ADN [] tabADN;
 
     public GameObject m_creature;
 
@@ -21,10 +21,10 @@ public class Generation : MonoBehaviour
 
     private float timeleft;
 
-    void Awake()
+    /*void Awake()
     {
         tabADN=new ADN[5];
-    }
+    }*/
  
     // Start is called before the first frame update
     void Start()
