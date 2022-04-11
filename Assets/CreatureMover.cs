@@ -15,7 +15,7 @@ public class CreatureMover: MonoBehaviour
     void Start()
     {
         //Fetch the Rigidbody from the GameObject with this script attached
-        //m_rigidbody=GetComponent<Rigidbody>();
+        m_rigidbody=GetComponent<Rigidbody>();
     }
 
     //Update is called once per frame
@@ -40,6 +40,6 @@ public class CreatureMover: MonoBehaviour
     void FixedUpdate()
     {
         //Appliquer une force à ce Rigidbody en direction du GameObject
-        //m_rigidbody.AddForce(mouvement*Max_Vitesse);
+        m_rigidbody.AddForce(mouvement*Max_Vitesse);
     }
 }
