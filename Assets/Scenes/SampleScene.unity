@@ -2501,13 +2501,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f783636f09b2165b39468ee2dcf2c461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabAiles:
-  - {fileID: 1146002137}
-  - {fileID: 628860318}
-  tabQueue:
-  - {fileID: 989389321}
-  corps: {fileID: 1488403383}
-  genes: {fileID: 0}
+  nbAiles: 2
+  nbQueues: 1
+  m_tabAiles:
+  - {fileID: 1146002131}
+  - {fileID: 628860315}
+  m_tabQueues: {fileID: 989389318}
   timer: 0
   waitTime: 5
 --- !u!54 &1713989217

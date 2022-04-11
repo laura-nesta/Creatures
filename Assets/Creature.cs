@@ -12,14 +12,10 @@ public class Creature : MonoBehaviour
     AileDeFou [] tabAiles;
     Queue [] tabQueue;
     Oiseau corps;
-
-    public GameObject  m_tabAiles;
-    public GameObject m_tabQueues;
-    GameObject m_Corps;
     GameObject m_Creature;
     Rigidbody r_Creature;
-
-    public ADN genes;
+    
+    ADN genes;
     float aileg, ailed, queue, poids;
 
     Vector3 [] v_aile;
@@ -30,18 +26,12 @@ public class Creature : MonoBehaviour
     void Awake() {
         tabAiles = new AileDeFou[nbAiles];
         tabQueue = new Queue[nbQueues];
-        v_aile = new Vector3[nbAiles];
         
         genes = gameObject.AddComponent<ADN>();
         r_Creature = GetComponent<Rigidbody>();
 
-        for(int i=0; i<nbAiles; i++) {
-            tabAiles[i] = m_tabAiles.GetComponent<AileDeFou>();
-        }
-
-        for(int i=0; i<nbQueues; i++) {
-            tabQueue[i] = m_tabQueues.GetComponent<Queue>();
-        }
+        tabAiles = GetComponentsInChildren<AileDeFou>();
+        tabQueue = GetComponentsInChildren<Queue>();
         
     }
 
@@ -58,24 +48,25 @@ public class Creature : MonoBehaviour
 
         r_Creature.mass = poids;
 
-        for(int i=0; i<nbAiles; i++){
-            v_aile[i] = tabAiles[i].getAile().transform.localScale;
-            
-            if(tabAiles[i].isAile_G){
-                v_aile[i] *= aileg;
+        foreach(AileDeFou adf in tabAiles){            
+            if(adf.isAile_G){
+                adf.getAile().transform.localScale *= aileg;
             }
             else{
-                v_aile[i] *= ailed;
+                adf.getAile().transform.localScale *= ailed;
             }
         }
         
-        for(int i=0; i<nbQueues; i++){
-            tabQueue[i].transform.localScale *= queue;
-        } 
+        foreach(Queue q in tabQueue){            
+          
+            q.transform.localScale *= queue;
+            
+        }
+       
     }
 
     void Update() {
-        Debug.Log("here we gooooo");
+        Debug.Log(tabAiles[0].getAile().transform.localScale);
     }
 
 
