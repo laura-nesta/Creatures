@@ -2464,6 +2464,7 @@ GameObject:
   - component: {fileID: 1713989215}
   - component: {fileID: 1713989217}
   - component: {fileID: 1713989216}
+  - component: {fileID: 1713989218}
   m_Layer: 0
   m_Name: test
   m_TagString: Untagged
@@ -2521,6 +2522,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1713989218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713989214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70ea24a9e4168a779021433808927bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 1713989214}
 --- !u!1 &2053912302
 GameObject:
   m_ObjectHideFlags: 0

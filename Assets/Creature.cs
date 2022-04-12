@@ -34,9 +34,9 @@ public class Creature : MonoBehaviour
 
     void Start()
     {
-        ModifCreature(12,1,1,1);
+        InitCreature();
     }
-
+//////////////////// GETTEURS & SETTEURS ////////////////////
     public void setPoids(float _poids) 
     {
         genes.setPoids(_poids);
@@ -85,10 +85,14 @@ public class Creature : MonoBehaviour
         setQueue(_queue);
     }
 
+
+//////////////////// INITIALISATION ////////////////////
+
+/*
+    initialisation des composants de la créature avec des gènes par défaut
+*/
     void InitCreature() 
     {
-        // INITIALISATION DES COMPOSANTS DE LA CREATURE (avec les gènes)
-        
         aileg = genes.getAileG();
         ailed = genes.getAileD();
         queue = genes.getQueue();
@@ -109,6 +113,11 @@ public class Creature : MonoBehaviour
         }
     }
 
+/*
+    Créature dont les gènes sont ceux passés en paramètre.
+    Modifie les gènes d'une créature.
+    => varier les morphologies des créatures
+*/
     void ModifCreature(float _ailed, float _aileg, float _queue, float _poids) 
     {
         setGenes(_aileg, _ailed, _queue, _poids);
