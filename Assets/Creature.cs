@@ -11,19 +11,17 @@ public class Creature : MonoBehaviour
 //////////////////  CREATURE  /////////////////////
     AileDeFou [] tabAiles;
     Queue [] tabQueue;
-    Oiseau corps;
-    GameObject m_Creature;
     Rigidbody r_Creature;
     
     ADN genes;
     float aileg, ailed, queue, poids;
 
-    Vector3 [] v_aile;
-
     public float timer = 0f;
     public float waitTime = 5f;
 
-    void Awake() {
+    void Awake() 
+    {
+        
         tabAiles = new AileDeFou[nbAiles];
         tabQueue = new Queue[nbQueues];
         
@@ -32,24 +30,68 @@ public class Creature : MonoBehaviour
 
         tabAiles = GetComponentsInChildren<AileDeFou>();
         tabQueue = GetComponentsInChildren<Queue>();
+
     }
 
 
-    // Start is called before the first frame update
-    void Start()
+    void Start() {
+        ModifCreature(12,1,1,1);
+       
+    }
+
+    public void setPoids(float _poids) {
+        genes.setPoids(_poids);
+    }
+
+    public void setAileg(float _aileg) {
+        genes.setAileG(_aileg);
+    }
+
+    public void setAiled(float _ailed) {
+        genes.setAileD(_ailed);
+    }
+
+    public void setQueue(float _queue) {
+         genes.setQueue(_queue);
+    }
+
+    public float getPoids() {
+        return poids = genes.getPoids();
+    }
+
+    public float getAileg() {
+        return aileg;
+    }
+
+    public float setAiled() {
+        return ailed;
+    }
+
+    public float getQueue() {
+        return queue;
+    }
+
+    public void setGenes(float _ailed, float _aileg, float _queue, float _poids) 
+    {
+        setAiled(_ailed);
+        setAileg(_aileg);
+        setPoids(_poids);
+        setQueue(_queue);
+    }
+
+    void InitCreature() 
     {
         // INITIALISATION DES COMPOSANTS DE LA CREATURE (avec les gènes)
-       
+        
         aileg = genes.getAileG();
         ailed = genes.getAileD();
         queue = genes.getQueue();
         poids = genes.getPoids();
 
         r_Creature.mass = poids;
-
         foreach(AileDeFou adf in tabAiles){            
             if(adf.isAile_G){
-                adf.getAile().transform.localScale *= aileg;
+                adf.getAile().transform.localScale *= 1;
             }
             else{
                 adf.getAile().transform.localScale *= ailed;
@@ -59,11 +101,25 @@ public class Creature : MonoBehaviour
         foreach(Queue q in tabQueue){            
             q.transform.localScale *= queue;
         }
-       
     }
 
-    void Update() {
-        Debug.Log(tabAiles[0].getAile().transform.localScale);
+    void ModifCreature(float _ailed, float _aileg, float _queue, float _poids) 
+    {
+        setGenes(_aileg, _ailed, _queue, _poids);
+
+        r_Creature.mass = _poids;
+        foreach(AileDeFou adf in tabAiles){            
+            if(adf.isAile_G){
+                adf.getAile().transform.localScale *= _aileg;
+            }
+            else{
+                adf.getAile().transform.localScale *= _ailed;
+            }
+        }
+        
+        foreach(Queue q in tabQueue){            
+            q.transform.localScale *= _queue;
+        }
     }
 
 

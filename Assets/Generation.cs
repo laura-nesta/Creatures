@@ -7,7 +7,7 @@ public class Generation : MonoBehaviour
     //private int nb_crea = 10;
    // public float[nb_crea] note = {10f};
 
-
+/*
     private const int nb_creatures = 10;
     public GameObject[] maCreature;
     //public GameObject selector;
@@ -26,10 +26,9 @@ public class Generation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
         maCreature[1].GetComponent<Renderer>().material.color = Color.yellow;
         maCreature[0].transform.Translate(2,0,0);
-        maCreature[1].transform.Translate(-2,0,0);*/
+        maCreature[1].transform.Translate(-2,0,0);
         //maCreature[0].GetComponent<Renderer>().material.color = Color.blue;
         maCreature = new GameObject[nb_creatures];
         int [] tab = maCreature[0].geneToTab();
@@ -43,11 +42,24 @@ public class Generation : MonoBehaviour
             //go.Find("creature/corps").transform.localScale = new Vector3(i,1,1);
             maCreature[i] = go;
         }
-    }
+    } 
 
     // Update is called once per frame
     void Update()
     {
         
+    } */
+
+    public GameObject creature;
+    //float nasru = 3;
+    void Start () {
+         
+        
+    }
+    //float aralik;
+    void Update () {
+        
+        //    GameObject go = GameObject.Instantiate(creature);
+        //    go.transform.position = transform.position;
     }
 }

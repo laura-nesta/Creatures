@@ -56,20 +56,20 @@ public class ADN : MonoBehaviour
         return synchro;
     }
 
-    public void SetAileD(float t){
+    public void setAileD(float t){
         tailleAileD = t;
     }
 
-    public void SetAileG(float t){
+    public void setAileG(float t){
         tailleAileG = t;
     }
-    public void SetQueue(float t){
+    public void setQueue(float t){
         tailleQueue = t;
     }
-    public void SetPoids(float t){
+    public void setPoids(float t){
         poids = t;
     }
-    public void SetSync(bool t){
+    public void setSync(bool t){
         synchro = t;
     }
 
