@@ -21,7 +21,6 @@ public class Creature : MonoBehaviour
 
     void Awake() 
     {
-        
         tabAiles = new AileDeFou[nbAiles];
         tabQueue = new Queue[nbQueues];
         
@@ -30,44 +29,51 @@ public class Creature : MonoBehaviour
 
         tabAiles = GetComponentsInChildren<AileDeFou>();
         tabQueue = GetComponentsInChildren<Queue>();
-
     }
 
 
-    void Start() {
+    void Start()
+    {
         ModifCreature(12,1,1,1);
-       
     }
 
-    public void setPoids(float _poids) {
+    public void setPoids(float _poids) 
+    {
         genes.setPoids(_poids);
     }
 
-    public void setAileg(float _aileg) {
+    public void setAileg(float _aileg) 
+    {
         genes.setAileG(_aileg);
     }
 
-    public void setAiled(float _ailed) {
+    public void setAiled(float _ailed)
+    {
         genes.setAileD(_ailed);
     }
 
-    public void setQueue(float _queue) {
+    public void setQueue(float _queue) 
+    {
          genes.setQueue(_queue);
     }
 
-    public float getPoids() {
+    public float getPoids() 
+    {
         return poids = genes.getPoids();
     }
 
-    public float getAileg() {
+    public float getAileg() 
+    {
         return aileg;
     }
 
-    public float setAiled() {
+    public float setAiled() 
+    {
         return ailed;
     }
 
-    public float getQueue() {
+    public float getQueue() 
+    {
         return queue;
     }
 
@@ -123,7 +129,8 @@ public class Creature : MonoBehaviour
     }
 
 
-    bool estArrive() {
+    bool estArrive() 
+    {
         //if(m_Test.position == target) return true;
 
         return false;
