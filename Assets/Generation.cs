@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class Generation : MonoBehaviour
 {
+
+    ADN adn;
+    bool Generation_initialisee=false;
+     
+    public float Vitesse;
+
+    Vector3 falaise_cible;
+
+    public void InitCreature(int nb_genes, Vector3 falaise_cible)
+    {
+        adn= new ADN(nb_genes);
+        
+    }
     //private int nb_crea = 10;
    // public float[nb_crea] note = {10f};
 
@@ -51,15 +64,17 @@ public class Generation : MonoBehaviour
     } */
 
     public GameObject creature;
+    public Creature ii;
+    GameObject go;
     //float nasru = 3;
     void Start () {
-         
+
+        
+        go = GameObject.Instantiate(creature);
         
     }
     //float aralik;
     void Update () {
-        
-        //    GameObject go = GameObject.Instantiate(creature);
-        //    go.transform.position = transform.position;
+    
     }
 }
