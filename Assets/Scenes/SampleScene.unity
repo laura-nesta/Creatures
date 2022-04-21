@@ -2710,6 +2710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creature: {fileID: 1713989214}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &1713989219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2745,6 +2746,10 @@ MonoBehaviour:
   - {fileID: 0}
   selector: {fileID: 1713989214}
 --- !u!1 &2053912302
+=======
+  ii: {fileID: 0}
+--- !u!1 &1805480041
+>>>>>>> 5f37640c12649b43c53aa697785504ab363010e3
 =======
   ii: {fileID: 0}
 --- !u!1 &1805480041

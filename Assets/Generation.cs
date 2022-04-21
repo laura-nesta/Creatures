@@ -12,10 +12,10 @@ public class Generation : MonoBehaviour
 
     Vector3 falaise_cible;
 
-    public void InitCreature(ADN _adn, Vector3 falaise_cible)
+    public void InitCreature(ADN _adn, Vector3 _falaise_cible)
     {
         adn= _adn;
-
+        falaise_cible=_falaise_cible;
     }
     //private int nb_crea = 10;
    // public float[nb_crea] note = {10f};
