@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AileDeFou : MonoBehaviour
+public class Aile : MonoBehaviour
 {
     Rigidbody r_Aile;
     public bool isAile_G;

@@ -13,23 +13,17 @@ public class ADN : MonoBehaviour
 
     //on travaille avec des ratios par rapport à notre créature de base
     //le constructeur par défaut à des genes qui ne modifie pas notre ccreature
-    public ADN(){
+
+    void Awake()
+    {
         tailleAileD = 1;
         tailleAileG = 1;
-        tailleQueue = 1;
+        tailleQueue = 1; 
         poids = 1;
         synchro = false;
     }
 
     //constructeurs avec pramètres pour modifier nos créatures
-    public ADN(float tAg, float tAd, float tQ, float p, bool s){
-        tailleAileD = tAd;
-        tailleAileG = tAg;
-        tailleQueue = tQ;
-        poids = p;
-        synchro = s;
-    }
-
     public void setGenes(float tAg, float tAd, float tQ, float p, bool s){
         tailleAileD = tAd;
         tailleAileG = tAg;
@@ -56,20 +50,20 @@ public class ADN : MonoBehaviour
         return synchro;
     }
 
-    public void SetAileD(float t){
+    public void setAileD(float t){
         tailleAileD = t;
     }
 
-    public void SetAileG(float t){
+    public void setAileG(float t){
         tailleAileG = t;
     }
-    public void SetQueue(float t){
+    public void setQueue(float t){
         tailleQueue = t;
     }
-    public void SetPoids(float t){
+    public void setPoids(float t){
         poids = t;
     }
-    public void SetSync(bool t){
+    public void setSync(bool t){
         synchro = t;
     }
 
