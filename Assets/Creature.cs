@@ -35,7 +35,9 @@ public class Creature : MonoBehaviour
     void Start()
     {
         InitCreature();
+        
     }
+
 //////////////////// GETTEURS & SETTEURS ////////////////////
     public void setPoids(float _poids) 
     {
@@ -91,7 +93,7 @@ public class Creature : MonoBehaviour
 /*
     initialisation des composants de la créature avec des gènes par défaut
 */
-    void InitCreature() 
+    public void InitCreature() 
     {
         aileg = genes.getAileG();
         ailed = genes.getAileD();
@@ -99,12 +101,14 @@ public class Creature : MonoBehaviour
         poids = genes.getPoids();
 
         r_Creature.mass = poids;
+
         foreach(AileDeFou adf in tabAiles){            
             if(adf.isAile_G){
-                adf.getAile().transform.localScale *= 1;
+                adf.transform.localScale *= aileg;
+                //adf.transform.localPosition *= aileg;
             }
             else{
-                adf.getAile().transform.localScale *= ailed;
+                adf.transform.localScale *= ailed;
             }
         }
         
@@ -118,17 +122,18 @@ public class Creature : MonoBehaviour
     Modifie les gènes d'une créature.
     => varier les morphologies des créatures
 */
-    void ModifCreature(float _ailed, float _aileg, float _queue, float _poids) 
+    public void ModifCreature(float _ailed, float _aileg, float _queue, float _poids) 
     {
         setGenes(_aileg, _ailed, _queue, _poids);
 
         r_Creature.mass = _poids;
+
         foreach(AileDeFou adf in tabAiles){            
             if(adf.isAile_G){
-                adf.getAile().transform.localScale *= _aileg;
+                adf.transform.localScale *= _aileg;
             }
             else{
-                adf.getAile().transform.localScale *= _ailed;
+                adf.transform.localScale *= _ailed;
             }
         }
         

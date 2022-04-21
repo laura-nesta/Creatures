@@ -51,15 +51,17 @@ public class Generation : MonoBehaviour
     } */
 
     public GameObject creature;
+    public Creature ii;
+    GameObject go;
     //float nasru = 3;
     void Start () {
-         
+
+        
+        go = GameObject.Instantiate(creature);
         
     }
     //float aralik;
     void Update () {
-        
-        //    GameObject go = GameObject.Instantiate(creature);
-        //    go.transform.position = transform.position;
+    
     }
 }
