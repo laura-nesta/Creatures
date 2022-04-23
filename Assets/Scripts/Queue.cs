@@ -4,42 +4,40 @@ using UnityEngine;
 
 public class Queue : MonoBehaviour
 {
+    public Creature parentCreature;
 
-    Rigidbody r_Queue;
     float angle = 0.0f;
-    Vector3 v;
+    float v;
+    float size = 1;
+    bool descending = false;
 
-    Vector3 m_StartPos;
-
-    //float coefPortance = 0.5f;
-    Vector3 portance, trainee, traction;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        m_StartPos = transform.position;
-        
-        r_Queue = GetComponent<Rigidbody>();
-            r_Queue.drag = 1.2f;
-        
-        portance = new Vector3(0.0f, 0.1f, 0.0f);
-        trainee  = new Vector3(-0.1f,0.0f, 0.0f);
-        traction = new Vector3(0.2f,0.0f, 0.0f);
-        
-    }
+    float defaultScale = 1.0f;
+    float horizontalSpeed = 10;
+    float verticalSpeed = 3;
+    float minAngle = -30f;
+    float maxAngle = 30;
 
     void FixedUpdate()
-    {
-            v = new Vector3( Mathf.Sin(angle),0, 0);
-            angle += 0.1f;
-            r_Queue.AddTorque(v, ForceMode.VelocityChange);
-            r_Queue.AddForce(portance, ForceMode.Impulse);
+    { 
+        v = 1 + Mathf.Sin(angle);
+        if (v > 1.9f)
+        {
+            descending = true;
+        }
+        if (v < 0.1f)
+        {
+            descending = false;
+        }
 
-            r_Queue.AddForce(trainee, ForceMode.Impulse);
-            r_Queue.AddForce(traction, ForceMode.Acceleration);
+        angle += 0.1f;
+        transform.localEulerAngles = new Vector3(0, 0, Mathf.Lerp(minAngle, maxAngle, v / 2));
+
+        parentCreature.appliquerForce(new Vector3(-horizontalSpeed * size, descending ? verticalSpeed * size : 0, 0));
     }
 
-    public Rigidbody getQueue() {
-        return r_Queue;
+    public void setSize(float _size)
+    {
+        size = _size;
+        transform.localScale = new Vector3(defaultScale * size, transform.localScale.y, transform.localScale.z);
     }
 }

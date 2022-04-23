@@ -4,38 +4,20 @@ using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
-    public int nbAiles = 2;
-    public int nbQueues = 1;
     Vector3 target;
 
-//////////////////  CREATURE  /////////////////////
-    Aile [] tabAiles;
-    Queue [] tabQueue;
-    Rigidbody r_Creature;
+    //////////////////  CREATURE  /////////////////////
+
+    public Aile aileGauche;
+    public Aile aileDroite;
+    public Queue queueGameObject;
+    public Corps corps;
     
-    ADN genes;
-    float aileg, ailed, queue, poids;
-
-    public float timer = 0f;
-    public float waitTime = 5f;
-
-    void Awake() 
-    {
-        tabAiles = new Aile[nbAiles];
-        tabQueue = new Queue[nbQueues];
-        
-        genes = gameObject.AddComponent<ADN>();
-        r_Creature = GetComponent<Rigidbody>();
-
-        tabAiles = GetComponentsInChildren<Aile>();
-        tabQueue = GetComponentsInChildren<Queue>();
-    }
-
+    private ADN genes = new ADN();
 
     void Start()
     {
-        InitCreature();
-        
+        modifCreature();
     }
 
 //////////////////// GETTEURS & SETTEURS ////////////////////
@@ -61,22 +43,22 @@ public class Creature : MonoBehaviour
 
     public float getPoids() 
     {
-        return poids = genes.getPoids();
+        return genes.getPoids();
     }
 
     public float getAileg() 
     {
-        return aileg;
+        return genes.getAileG();
     }
 
     public float setAiled() 
     {
-        return ailed;
+        return genes.getAileD();
     }
 
     public float getQueue() 
     {
-        return queue;
+        return genes.getQueue();
     }
 
     public void setGenes(float _ailed, float _aileg, float _queue, float _poids) 
@@ -85,6 +67,7 @@ public class Creature : MonoBehaviour
         setAileg(_aileg);
         setPoids(_poids);
         setQueue(_queue);
+        modifCreature();
     }
 
 
@@ -93,56 +76,34 @@ public class Creature : MonoBehaviour
 /*
     initialisation des composants de la créature avec des gènes par défaut
 */
-    public void InitCreature() 
-    {
-        aileg = genes.getAileG();
-        ailed = genes.getAileD();
-        queue = genes.getQueue();
-        poids = genes.getPoids();
 
-        r_Creature.mass = poids;
-
-        foreach(Aile adf in tabAiles){            
-            if(adf.isAile_G){
-                adf.transform.localScale *= aileg;
-                //adf.transform.localPosition *= aileg;
-            }
-            else{
-                adf.transform.localScale *= ailed;
-            }
-        }
-        
-        foreach(Queue q in tabQueue){            
-            q.transform.localScale *= queue;
-        }
-    }
 
 /*
     Créature dont les gènes sont ceux passés en paramètre.
     Modifie les gènes d'une créature.
     => varier les morphologies des créatures
 */
-    public void ModifCreature(float _ailed, float _aileg, float _queue, float _poids) 
+    private void modifCreature() 
     {
-        setGenes(_aileg, _ailed, _queue, _poids);
-
-        r_Creature.mass = _poids;
-
-        foreach(Aile adf in tabAiles){            
-            if(adf.isAile_G){
-                adf.transform.localScale *= _aileg;
-            }
-            else{
-                adf.transform.localScale *= _ailed;
-            }
-        }
-        
-        foreach(Queue q in tabQueue){            
-            q.transform.localScale *= _queue;
-        }
+        aileDroite.setSize(genes.getAileD());
+        aileGauche.setSize(genes.getAileG());
+        queueGameObject.setSize(genes.getQueue());
+        corps.setPoids(genes.getPoids());
     }
 
+    public void generateRandomGenes()
+    {
+        float tailleAileGauche = Random.Range(0f, 2f);
+        float tailleAileDroite = Random.Range(0f, 2f);
+        float tailleQueue = Random.Range(0f, 2f);
+        float poids = Random.Range(0f, 2f);
+        setGenes(tailleAileGauche, tailleAileDroite, tailleQueue, poids);
+    }
 
+    public void appliquerForce(Vector3 force)
+    {
+        transform.localPosition += 0.01f * force;
+    }
     bool estArrive() 
     {
         //if(m_Test.position == target) return true;
