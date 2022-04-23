@@ -229,7 +229,6 @@ GameObject:
   - component: {fileID: 595793680}
   - component: {fileID: 595793682}
   - component: {fileID: 595793681}
-  - component: {fileID: 595793683}
   m_Layer: 0
   m_Name: Environement
   m_TagString: Untagged
@@ -273,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creatures: []
   creaturePrefab: {fileID: 3943526329830114783, guid: 06c14cfd77d8bd74caae2f2eecf4f360, type: 3}
+  isPlaying: 0
 --- !u!114 &595793682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,18 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51bb9bf5eed3f84ab44c6e81569223d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &595793683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595793679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e51bb9bf5eed3f84ab44c6e81569223d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  generation: {fileID: 595793681}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
