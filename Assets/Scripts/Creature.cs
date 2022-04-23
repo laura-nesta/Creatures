@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
-    Vector3 target;
-
     //////////////////  CREATURE  /////////////////////
 
     public Aile aileGauche;
@@ -15,12 +13,23 @@ public class Creature : MonoBehaviour
     
     private ADN genes = new ADN();
 
+    public bool isAlive = true;
+    public bool isArrived = false;
+    float timeScore = 30f;
+
+    float variation = 0.2f;
+
     void Start()
     {
         modifCreature();
     }
 
-//////////////////// GETTEURS & SETTEURS ////////////////////
+    private void Update()
+    {
+        if (isAlive && !isArrived) timeScore -= Time.deltaTime * 0.5f;
+    }
+
+    //////////////////// GETTEURS & SETTEURS ////////////////////
     public void setPoids(float _poids) 
     {
         genes.setPoids(_poids);
@@ -29,6 +38,11 @@ public class Creature : MonoBehaviour
     public void setAileg(float _aileg) 
     {
         genes.setAileG(_aileg);
+    }
+
+    public ADN getGene()
+    {
+        return genes;
     }
 
     public void setAiled(float _ailed)
@@ -70,6 +84,11 @@ public class Creature : MonoBehaviour
         modifCreature();
     }
 
+    public float getFinalScore()
+    {
+        return timeScore + (isArrived ? 50f : 0f) + 20f * Mathf.Min(genes.getAileD(), genes.getAileG()) / Mathf.Max(genes.getAileD(), genes.getAileG());
+    }
+
 
 //////////////////// INITIALISATION ////////////////////
 
@@ -100,14 +119,19 @@ public class Creature : MonoBehaviour
         setGenes(tailleAileGauche, tailleAileDroite, tailleQueue, poids);
     }
 
+    public void generateGenes(ADN[] genes)
+    {
+        float tailleAileGauche = Mathf.Clamp(genes[Random.Range(0, genes.Length)].getAileG() * Random.Range(1f - variation, 1f + variation), 0f, 2f);
+        float tailleAileDroite = Mathf.Clamp(genes[Random.Range(0, genes.Length)].getAileD() * Random.Range(1f - variation, 1f + variation), 0f, 2f);
+        float tailleQueue = Mathf.Clamp(genes[Random.Range(0, genes.Length)].getQueue() * Random.Range(1f - variation, 1f + variation), 0f, 2f);
+        float poids = Mathf.Clamp(genes[Random.Range(0, genes.Length)].getPoids() * Random.Range(1f - variation, 1f + variation), 0f, 2f);
+        setGenes(tailleAileGauche, tailleAileDroite, tailleQueue, poids);
+    }
+
     public void appliquerForce(Vector3 force)
     {
-        transform.localPosition += 0.01f * force;
+        if (isAlive)
+            transform.localPosition += 0.01f * force;
     }
-    bool estArrive() 
-    {
-        //if(m_Test.position == target) return true;
 
-        return false;
-    }
 }

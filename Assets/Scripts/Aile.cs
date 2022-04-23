@@ -13,6 +13,7 @@ public class Aile : MonoBehaviour
     bool descending = false;
 
     float defaultScale = 1.5f;
+    float speed = 1;
     float horizontalSpeed = 3;
     float verticalSpeed = 3;
     float minAngle = -30f;
@@ -50,11 +51,11 @@ public class Aile : MonoBehaviour
 
         if (isAile_G)
         {
-            parentCreature.appliquerForce(new Vector3(0, descending ? verticalSpeed * size : 0, horizontalSpeed * size));
+            parentCreature.appliquerForce(new Vector3(-speed * size, descending ? verticalSpeed * size : 0, horizontalSpeed * size));
         }
         else
         {
-            parentCreature.appliquerForce(new Vector3(0, descending ? verticalSpeed * size : 0, -horizontalSpeed * size));
+            parentCreature.appliquerForce(new Vector3(-speed * size, descending ? verticalSpeed * size : 0, -horizontalSpeed * size));
         }
     }
 

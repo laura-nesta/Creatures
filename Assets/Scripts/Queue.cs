@@ -12,7 +12,7 @@ public class Queue : MonoBehaviour
     bool descending = false;
 
     float defaultScale = 1.0f;
-    float horizontalSpeed = 10;
+    float horizontalSpeed = 9;
     float verticalSpeed = 3;
     float minAngle = -30f;
     float maxAngle = 30;
