@@ -44,4 +44,13 @@ public class Generation : MonoBehaviour
         creatures = new Creature[nb_creatures];
         isPlaying = false;
     }
+
+    public void FinDeSimulation(ADN [] genes)
+    {
+        Creature creature = Instantiate(creaturePrefab, new Vector3(20, 60, 30), Quaternion.identity).GetComponent<Creature>();
+        creature.transform.eulerAngles = new Vector3(0, 180, 0);
+        creature.generateGenes(genes);
+        creature.isAlive = false;
+
+    }
 }
