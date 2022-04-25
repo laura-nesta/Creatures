@@ -43,7 +43,7 @@ public class Evolution : MonoBehaviour
         Debug.Log(mean);
         if (mean > success)
         {
-            string result = string.Format("Résultats :\nTaille aile gauche : {0}\nTaille aile droite : {1}\nTaille queue : {2}\nPoids : {3}",
+            string result = string.Format("RÃ©sultats :\nTaille aile gauche : {0}\nTaille aile droite : {1}\nTaille queue : {2}\nPoids : {3}",
                 scoreByGene.Keys.Select(g => g.getAileG()).Average(),
                 scoreByGene.Keys.Select(g => g.getAileD()).Average(),
                 scoreByGene.Keys.Select(g => g.getQueue()).Average(),
