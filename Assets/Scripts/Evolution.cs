@@ -15,6 +15,8 @@ public class Evolution : MonoBehaviour
     float success = 60f;
     
     public Text GenerationText;
+    public Text ScoreText;
+    public Text TimeText;
     
 
     private void Start()
