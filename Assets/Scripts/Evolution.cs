@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 
 public class Evolution : MonoBehaviour
 {
     public Generation generation;
-    int numero_generation;
+    int numero_generation=1;
     Dictionary<ADN, float> scoreByGene = new Dictionary<ADN, float>();
     float max_time = 20;
     float current_time = 0;
     float percentage = 0.4f;
     float success = 60f;
+    
+    public Text GenerationText;
+    
 
     private void Start()
     {
         generation.launch();
         scoreByGene.Clear();
+        GenerationText.text="Generation: 0";
     }
 
     private void Update()
@@ -26,6 +31,7 @@ public class Evolution : MonoBehaviour
             current_time += Time.deltaTime;
             if (generation.creatures.All(c => !c.isAlive || c.isArrived) || current_time > max_time)
             {
+                GenerationText.text="Generation: " + numero_generation;            
                 getScoresAndLaunchAgain();
             }
         }
@@ -62,5 +68,6 @@ public class Evolution : MonoBehaviour
             generation.launch(selectedGenes);
         }
         current_time = 0;
+        numero_generation++;
     }
 }
