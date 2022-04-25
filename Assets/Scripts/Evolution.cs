@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+using UnityEngine.UI;
+using System.IO;
+using System.Text;
+
 public class Evolution : MonoBehaviour
 {
     public Generation generation;
-    int numero_generation;
+    int numero_generation = 1;
     Dictionary<ADN, float> scoreByGene = new Dictionary<ADN, float>();
-    float max_time = 20;
+    float max_time = 20;    // temps maximum de simulation pour une génération
     float current_time = 0;
-    float percentage = 0.4f;
-    float success = 60f;
+    float percentage = 0.6f;  //pourcentage de créatures retenues pour la génération suivante
+    float success = 40f; //objectif de moyenne de la note d'une génération
+    float mean;
+    public Text numGeneration;
 
     private void Start()
     {
+        videFichierScore();
         generation.launch();
         scoreByGene.Clear();
     }
@@ -39,7 +46,7 @@ public class Evolution : MonoBehaviour
         }
         generation.reset();
 
-        float mean = scoreByGene.Values.Average();
+        mean = scoreByGene.Values.Average();
         Debug.Log(mean);
         if (mean > success)
         {
@@ -49,6 +56,10 @@ public class Evolution : MonoBehaviour
                 scoreByGene.Keys.Select(g => g.getQueue()).Average(),
                 scoreByGene.Keys.Select(g => g.getPoids()).Average());
             Debug.Log(result);
+            finDeSimulation(scoreByGene.Keys.Select(g => g.getAileG()).Average(),
+                scoreByGene.Keys.Select(g => g.getAileD()).Average(),
+                scoreByGene.Keys.Select(g => g.getQueue()).Average(),
+                scoreByGene.Keys.Select(g => g.getPoids()).Average());
         }
         else
         {
@@ -62,5 +73,25 @@ public class Evolution : MonoBehaviour
             generation.launch(selectedGenes);
         }
         current_time = 0;
+        numero_generation++;
+        sauverScore();
+    }
+
+    private void finDeSimulation(float ag, float ad, float q, float p)
+    {
+        //ADN selectedGenes = new ADN(ag, ad, q, p);
+        generation.FinDeSimulation(ad, ag, q, p);
+    }
+
+    void sauverScore()
+    {
+        File.AppendAllText("Scores.txt", mean.ToString()+"\n");
+    }
+
+    void videFichierScore()
+    {
+        StreamWriter sw = new StreamWriter("Scores.txt");
+        sw.Flush();
+        sw.Close();
     }
 }
