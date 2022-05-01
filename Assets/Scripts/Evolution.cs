@@ -15,9 +15,10 @@ public class Evolution : MonoBehaviour
     float max_time = 20;    // temps maximum de simulation pour une génération
     float current_time = 0;
     float percentage = 0.6f;  //pourcentage de créatures retenues pour la génération suivante
-    float success = 40f; //objectif de moyenne de la note d'une génération
+    float success = 70f; //objectif de moyenne de la note d'une génération
     float mean;
     public Text numGeneration;
+    private float[] tabScore = new float[100];
 
     private void Start()
     {
@@ -35,6 +36,14 @@ public class Evolution : MonoBehaviour
         GUI.Box(new Rect(20, 70, 230, 30), "Taille moyenne aile droite: " + scoreByGene.Keys.Select(g => g.getAileD()).Average());
         GUI.Box(new Rect(20, 100, 230, 30), "Taille moyenne queue: " + scoreByGene.Keys.Select(g => g.getQueue()).Average());
         GUI.Box(new Rect(20, 130, 230, 30), "poids moyen: " + scoreByGene.Keys.Select(g => g.getPoids()).Average());
+
+        GUI.Box(new Rect(10, 650, 230, 30), "temps: " + current_time);
+
+        GUI.Box(new Rect(1000, 10, 200, 30 + numero_generation * 30), "Score");
+        for (int i = 2; i <= numero_generation; i++)
+        {
+            GUI.Box(new Rect(1010, 40 + (i - 2) * 30, 180, 30), "Score " + (i - 1) + ": " + tabScore[i - 1]);
+        }
 
         // GUI.Box(new Rect(20,130,230,30), "temps moyen: " + generation.creatures[0].getTime());
     }
@@ -62,10 +71,14 @@ public class Evolution : MonoBehaviour
 
     private void getScoresAndLaunchAgain()
     {
+        if(numero_generation != 1)
+            createScoreByGene();
         generation.reset();
 
         mean = scoreByGene.Values.Average();
+        
         Debug.Log(mean);
+        tabScore[numero_generation] = mean;
         if (mean > success)
         {
             string result = string.Format("Résultats :\nTaille aile gauche : {0}\nTaille aile droite : {1}\nTaille queue : {2}\nPoids : {3}",
