@@ -38,10 +38,10 @@ public class Graphe: MonoBehaviour
     {
        float hauteur=graphcontainer.sizeDelta.y;
        float yMinimum=100f;
-       float xSize=50f;
+       float ecart=50f;
        for(int i=0; i<100; i++)
        {
-           float xPosition=i*xSize+xSize;
+           float xPosition=i*ecart+ecart;
            float yPosition= (valeurs[i]/yMinimum)*hauteur;
            Dot(new Vector2(xPosition, yPosition));
        }
