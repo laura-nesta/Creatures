@@ -15,7 +15,7 @@ public class Evolution : MonoBehaviour
     float max_time = 20;    // temps maximum de simulation pour une génération
     float current_time = 0;
     float percentage = 0.6f;  //pourcentage de créatures retenues pour la génération suivante
-    float success = 70f; //objectif de moyenne de la note d'une génération
+    float success = 80f; //objectif de moyenne de la note d'une génération
     float mean;
     public Text numGeneration;
     private float[] tabScore = new float[100];
