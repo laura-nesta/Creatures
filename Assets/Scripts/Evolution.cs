@@ -17,10 +17,12 @@ public class Evolution : MonoBehaviour
     {
         generation.launch();
         scoreByGene.Clear();
+        createScoreByGene();
     }
 
     void OnGUI()
     {
+        
         GUI.Box(new Rect(10,10,260,160), "Génération " + numero_generation);
         GUI.Box(new Rect(20,40,230,30), "Taille moyenne aile gauche: " + scoreByGene.Keys.Select(g => g.getAileG()).Average());
         GUI.Box(new Rect(20,70,230,30), "Taille moyenne aile droite: " + scoreByGene.Keys.Select(g => g.getAileD()).Average());
@@ -45,12 +47,22 @@ public class Evolution : MonoBehaviour
         }
     }
 
-    private void getScoresAndLaunchAgain()
+    public void createScoreByGene()
     {
         for (int i = 0; i < Generation.nb_creatures; i++)
         {
             scoreByGene.Add(generation.creatures[i].getGene(), generation.creatures[i].getFinalScore());
         }
+    }
+
+    private void getScoresAndLaunchAgain()
+    {
+        /*
+        for (int i = 0; i < Generation.nb_creatures; i++)
+        {
+            scoreByGene.Add(generation.creatures[i].getGene(), generation.creatures[i].getFinalScore());
+        }*/
+        //createScoreByGene();
         generation.reset();
 
         float mean = scoreByGene.Values.Average();
