@@ -75,6 +75,11 @@ public class Creature : MonoBehaviour
         return genes.getQueue();
     }
 
+    public float getTime()
+    {
+        return timeScore;
+    }
+
     public void setGenes(float _ailed, float _aileg, float _queue, float _poids) 
     {
         setAiled(_ailed);

@@ -19,6 +19,19 @@ public class Evolution : MonoBehaviour
         scoreByGene.Clear();
     }
 
+    void OnGUI()
+    {
+        GUI.Box(new Rect(10,10,260,160), "Génération " + numero_generation);
+        GUI.Box(new Rect(20,40,230,30), "Taille moyenne aile gauche: " + scoreByGene.Keys.Select(g => g.getAileG()).Average());
+        GUI.Box(new Rect(20,70,230,30), "Taille moyenne aile droite: " + scoreByGene.Keys.Select(g => g.getAileD()).Average());
+        GUI.Box(new Rect(20,100,230,30), "Taille moyenne queue: " + scoreByGene.Keys.Select(g => g.getQueue()).Average());
+        GUI.Box(new Rect(20,130,230,30), "poids moyen: " + scoreByGene.Keys.Select(g => g.getPoids()).Average());
+
+       // GUI.Box(new Rect(20,130,230,30), "temps moyen: " + generation.creatures[0].getTime());
+    }
+
+
+    
     private void Update()
     {
         if (generation.isPlaying)
@@ -27,6 +40,7 @@ public class Evolution : MonoBehaviour
             if (generation.creatures.All(c => !c.isAlive || c.isArrived) || current_time > max_time)
             {
                 getScoresAndLaunchAgain();
+                numero_generation ++;
             }
         }
     }
