@@ -17,7 +17,7 @@ public class Creature : MonoBehaviour
     public bool isArrived = false;
     float timeScore = 30f;
 
-    float variation = 0.2f;
+    float variation = 0.4f; //pourcentage de variation sur les gênes parents
 
     void Start()
     {
@@ -102,7 +102,7 @@ public class Creature : MonoBehaviour
     Modifie les gènes d'une créature.
     => varier les morphologies des créatures
 */
-    private void modifCreature() 
+    public void modifCreature() 
     {
         aileDroite.setSize(genes.getAileD());
         aileGauche.setSize(genes.getAileG());

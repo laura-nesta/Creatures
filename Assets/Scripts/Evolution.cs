@@ -20,6 +20,11 @@ public class Evolution : MonoBehaviour
     public Text numGeneration;
     private float[] tabScore = new float[100];
 
+    public float gettabScore(int indice)
+    {
+        return tabScore[indice];
+    }
+
     private void Start()
     {
         videFichierScore();
