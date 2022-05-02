@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class Graphe: MonoBehaviour
 {
     public Evolution evolution;
-    private RectTransform graphcontainer;
-    [SerializeField] private Sprite dotsprite;
+    private RectTransform graphcontainer; //Pour la transformation du rectangle de graphcontainer
+
+    //Sprite: objet 2D pour afficher l'élément graphique du point
+    [SerializeField] private Sprite dotsprite; //SerializeField permet de forcer à modifier la donnée privée.
 
     private void Awake()
     {
